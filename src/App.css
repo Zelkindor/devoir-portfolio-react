@@ -1,38 +1,79 @@
-.App {
-  text-align: center;
+:root { --navbar-h: 56px; }
+
+/* ===== HERO (image 1) ===== */
+.hero-home{
+  margin-top: var(--navbar-h);                  /* sous la navbar fixed */
+  min-height: 520px;
+  background-size: cover;
+  background-position: center 40%;
+  position: relative;
+}
+@media (max-width: 576px){
+  .hero-home{ min-height: 420px; background-position: center; }
+}
+.hero-overlay{
+  position: absolute; inset: 0;
+  background: rgba(0,0,0,.5);                   /* voile sombre */
+}
+.hero-content{
+  position: relative; min-height: inherit;
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column; text-align: center; color: #fff;
+  text-shadow: 0 2px 12px rgba(0,0,0,.35);
+}
+.hero-title{
+  font-size: clamp(2rem, 4vw + 1rem, 56px);
+  font-weight: 800; margin: 0 0 .25rem;
+}
+.hero-subtitle{
+  font-size: clamp(1.1rem, 1.6vw + .6rem, 32px);
+  font-weight: 700; opacity: .95; margin-bottom: 1.25rem;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* ===== Bloc central (About fusionné) : carte et chevauchement léger ===== */
+.section-overlap{ margin-top: -40px; position: relative; z-index: 2; }
+.section-card{
+  background: #fff; border: 1px solid #e9ecef; border-radius: .5rem;
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.06);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* ===== Page “Modale GitHub” (image 2) ===== */
+.modal-page-backdrop{
+  position: fixed; left: 0; right: 0; top: var(--navbar-h); bottom: 0;
+  background: rgba(0,0,0,.65);
+  display: flex; align-items: center; justify-content: center;
+  padding: 24px; z-index: 1040;
 }
+.modal-card{
+  width: min(980px, 100%);
+  background: #1f1f1f; color: #f8f9fa;
+  border: 1px solid #343a40; border-radius: .5rem;
+  box-shadow: 0 20px 60px rgba(0,0,0,.45);
+}
+.modal-card .modal-header,
+.modal-card .modal-footer{ border-color: #343a40; }
+.modal-close{
+  background: transparent; border: none; color: #adb5bd; font-size: 1.25rem;
+}
+.modal-close:hover{ color: #fff; cursor: pointer; }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+.modal-img{
+  max-width: 320px; width: 100%; border-radius: 12px; display: block; margin: 0 auto;
+}
+.list-row{
+  display: flex; align-items: flex-start; gap: .5rem;
+  padding: .5rem 0; border-top: 1px solid #2c3034;
+  font-size: .95rem;
+}
+.list-row:first-child{ border-top: none; }
+.list-row i{ opacity: .8; margin-top: .15rem; }
+
+/* Footer icons styling */
+.footer-icon {
+  color: #6b7785; /* slightly darker muted grey-blue */
+  text-decoration: none;
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+.footer-icon i { transition: color 160ms ease, transform 160ms ease; color: inherit; }
+.footer-icon:hover i { color: #9aa6b2; transform: translateY(-2px); }
