@@ -1,14 +1,11 @@
 import React from "react";
 import { Button, Row, Col, Spinner } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
 
-export default function GitHubModal({ data, loading, error, onClose }) {
-  const navigate = useNavigate();
-
-  // close by calling onClose if provided (state-controlled), otherwise navigate to home
+function GitHubModal({ data, loading, error, onClose, avatarSrc }) {
+  // ferme la modale en appelant onClose si fourni (contrôlée par l'état parent)
   const handleClose = () => {
     if (onClose) return onClose();
-    navigate("/");
+  // rien à faire si le parent n'a pas fourni de gestionnaire de fermeture
   };
 
   return (
@@ -38,11 +35,16 @@ export default function GitHubModal({ data, loading, error, onClose }) {
           {!loading && !error && data && (
             <Row className="g-4">
               <Col md={6} className="text-center">
-                <img
-                  className="modal-img"
-                  src={data.avatar_url}
-                  alt={data.login}
-                />
+                {/* Avatar: render provided avatarSrc (to be set later) or fallback to data.avatar_url if available */}
+                {avatarSrc || data.avatar_url ? (
+                  <img
+                    className="modal-img"
+                    src={avatarSrc || data.avatar_url}
+                    alt={data.login}
+                  />
+                ) : (
+                  <div className="modal-img placeholder" />
+                )}
               </Col>
 
               <Col md={6}>
@@ -97,3 +99,5 @@ export default function GitHubModal({ data, loading, error, onClose }) {
     </div>
   );
 }
+
+export default React.memo(GitHubModal);

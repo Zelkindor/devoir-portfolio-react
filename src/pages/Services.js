@@ -1,14 +1,10 @@
 import React from "react";
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Row, Col, Card } from "react-bootstrap";
-import MyNavbar from "../components/Navbar";
 
 function Services() {
   return (
     <>
-      <MyNavbar />
-
-      {/* Hero Section */}
+  {/* Héro */}
       <div
         style={{
           backgroundImage: "url(/images/banner.jpg)",
@@ -19,18 +15,18 @@ function Services() {
         }}
       ></div>
 
-      {/* Title Section */}
+  {/* Titre */}
       <Container className="text-center my-5">
         <h1 className="fw-bold">Mon offre de services</h1>
         <p className="text-muted">Voici les prestations sur lesquelles je peux intervenir</p>
-        <hr className="mx-auto" style={{ width: "60px", borderTop: "3px solid #0d6efd" }} />
+  <hr className="section-divider mx-auto" />
       </Container>
 
-      {/* Services Section */}
+  {/* Services */}
       <Container className="pb-5">
         <Row className="g-4">
           <Col md={4}>
-            <Card className="h-100 text-center shadow-sm">
+            <Card className="h-100 text-center shadow-sm service-card">
               <Card.Body>
                 <div className="text-primary fs-1 mb-3">
                   <i className="bi bi-brush"></i>
@@ -44,7 +40,7 @@ function Services() {
           </Col>
 
           <Col md={4}>
-            <Card className="h-100 text-center shadow-sm">
+            <Card className="h-100 text-center shadow-sm service-card">
               <Card.Body>
                 <div className="text-primary fs-1 mb-3">
                   <i className="bi bi-code-slash"></i>
@@ -58,7 +54,7 @@ function Services() {
           </Col>
 
           <Col md={4}>
-            <Card className="h-100 text-center shadow-sm">
+            <Card className="h-100 text-center shadow-sm service-card">
               <Card.Body>
                 <div className="text-primary fs-1 mb-3">
                   <i className="bi bi-search"></i>

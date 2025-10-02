@@ -1,5 +1,22 @@
 :root { --navbar-h: 56px; }
 
+/* Site typography: use Nunito Sans from Google Fonts */
+html, body, #root {
+  height: 100%;
+}
+body {
+  font-family: 'Nunito Sans', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 400; /* body text */
+  color: #222;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Headings and strong text use a slightly heavier weight for emphasis */
+h1, h2, h3, h4, h5, h6, strong {
+  font-weight: 600;
+}
+
 /* ===== HERO (image 1) ===== */
 .hero-home{
   margin-top: var(--navbar-h);                  /* sous la navbar fixed */
@@ -53,8 +70,56 @@
 .modal-card .modal-header,
 .modal-card .modal-footer{ border-color: #343a40; }
 .modal-close{
-  background: transparent; border: none; color: #adb5bd; font-size: 1.25rem;
+  background: transparent;
+  border: none;
+  color: #adb5bd;
+  font-size: 1.25rem;
 }
+
+/* Service cards: light grey background while preserving shadow from .shadow-sm */
+.service-card {
+  background-color: #efefef;
+}
+
+/* Portfolio cards and button hover behavior */
+.portfolio-card {
+  background-color: #efefef;
+  transition: box-shadow 180ms ease, transform 180ms ease;
+}
+.portfolio-card:hover {
+  box-shadow: 0 .75rem 1.5rem rgba(0,0,0,0.12);
+  transform: translateY(-4px);
+}
+.portfolio-btn {
+  transition: filter 160ms ease, transform 160ms ease;
+}
+.portfolio-btn:hover {
+  /* lighten on hover instead of darken */
+  filter: brightness(1.12);
+  transform: translateY(-1px);
+}
+
+/* Footer: remove default hyperlink appearance and keep links visually consistent with footer text */
+footer a,
+footer a:visited {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+footer a:hover,
+footer a:focus {
+  text-decoration: none;
+  color: inherit;
+  opacity: 0.92;
+}
+
+/* Make footer links bold on hover/focus for better affordance */
+footer a:hover,
+footer a:focus {
+  font-weight: 700;
+}
+
 .modal-close:hover{ color: #fff; cursor: pointer; }
 
 .modal-img{
@@ -76,4 +141,47 @@
   align-items: center;
 }
 .footer-icon i { transition: color 160ms ease, transform 160ms ease; color: inherit; }
-.footer-icon:hover i { color: #9aa6b2; transform: translateY(-2px); }
+.footer-icon:hover i,
+.footer-icon:focus i {
+  color: #ffffff; /* become white on hover/focus */
+  transform: translateY(-2px);
+}
+
+/* Active navbar link styling */
+.navbar .nav-link.active {
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+/* underline nav links on hover for better affordance */
+.navbar .nav-link:hover {
+  text-decoration: underline;
+}
+
+/* Full-width section divider used under page titles */
+.section-divider {
+  display: block;
+  /* width slightly larger than the title: responsive between 240px and 720px */
+  width: clamp(320px, 40%, 840px);
+  height: 6px;
+  background: #0000FF;
+  border: none;
+  margin: 1.25rem auto 1.5rem auto;
+  border-radius: 6px;
+}
+
+/* Slightly longer, thinner variant for sub-headers inside cards */
+.section-divider.short {
+  width: clamp(160px, 30%, 480px);
+  height: 4px;
+  background: #0000FF;
+}
+
+/* Full-width divider aligned to the start of a column or block */
+.section-divider.full {
+  width: 100%;
+  height: 6px;
+  margin: 0 0 1rem 0;
+  border-radius: 6px;
+  background: #0000FF;
+}
