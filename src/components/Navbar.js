@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+import React from "react";
+import { Link, NavLink } from "react-router-dom";
 import { Navbar, Nav, Container } from "react-bootstrap";
 
 function MyNavbar() {
@@ -9,11 +10,21 @@ function MyNavbar() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
-            <Nav.Link as={Link} to="/">HOME</Nav.Link>
-            <Nav.Link as={Link} to="/services">SERVICES</Nav.Link>
-            <Nav.Link as={Link} to="/portfolio">PORTFOLIO</Nav.Link>
-            <Nav.Link as={Link} to="/contact">CONTACT</Nav.Link>
-            <Nav.Link as={Link} to="/legal">MENTIONS LÉGALES</Nav.Link>
+            <Nav.Link as={NavLink} to="/" end>
+              HOME
+            </Nav.Link>
+            <Nav.Link as={NavLink} to="/services">
+              SERVICES
+            </Nav.Link>
+            <Nav.Link as={NavLink} to="/portfolio">
+              PORTFOLIO
+            </Nav.Link>
+            <Nav.Link as={NavLink} to="/contact">
+              CONTACT
+            </Nav.Link>
+            <Nav.Link as={NavLink} to="/legal">
+              MENTIONS LÉGALES
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
@@ -21,4 +32,4 @@ function MyNavbar() {
   );
 }
 
-export default MyNavbar;
+export default React.memo(MyNavbar);

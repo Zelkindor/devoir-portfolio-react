@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Button } from "react-bootstrap";
 
-export default function Hero({ onOpenGitHub }) {
+function Hero({ onOpenGitHub }) {
   const bgUrl = process.env.PUBLIC_URL + '/images/hero-bg.jpg';
   const style = { backgroundImage: `url(${bgUrl})` };
 
@@ -19,3 +19,5 @@ export default function Hero({ onOpenGitHub }) {
     </header>
   );
 }
+
+export default React.memo(Hero);

@@ -1,7 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Container, Accordion } from "react-bootstrap";
 
 export default function MentionsLegales() {
+  useEffect(() => {
+    // inject a robots meta tag to discourage indexing of this page
+    const m1 = document.createElement('meta');
+    m1.name = 'robots';
+    m1.content = 'noindex, nofollow';
+    document.head.appendChild(m1);
+
+    const m2 = document.createElement('meta');
+    m2.name = 'googlebot';
+    m2.content = 'noindex, nofollow';
+    document.head.appendChild(m2);
+
+    return () => {
+      // cleanup on unmount
+      if (m1.parentNode) m1.parentNode.removeChild(m1);
+      if (m2.parentNode) m2.parentNode.removeChild(m2);
+    };
+  }, []);
   return (
     <>
       {/* Décalage sous la navbar fixe */}
@@ -9,10 +27,7 @@ export default function MentionsLegales() {
 
       <Container className="text-center my-5">
         <h1 className="fw-bold">Mentions légales</h1>
-        <hr
-          className="mx-auto"
-          style={{ width: 120, borderTop: "3px solid #0d6efd" }}
-        />
+        <hr className="section-divider mx-auto" />
       </Container>
 
       <Container className="pb-5" style={{ maxWidth: 900 }}>

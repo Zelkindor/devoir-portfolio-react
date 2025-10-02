@@ -6,42 +6,42 @@ const items = [
     title: "Fresh Food",
     subtitle: "Site de vente de produits frais en ligne",
     tech: "Site réalisé avec PHP et MySQL",
-    img: "/img/portfolio/fresh-food.jpg",
+    img: "/images/portfolio/fresh-food.jpg",
     url: "#"
   },
   {
     title: "Restaurant Akira",
-    subtitle: "Site vitrine de restaurant",
+    subtitle: "Site de vente de produits frais en ligne",
     tech: "Site réalisé avec WordPress",
-    img: "/img/portfolio/restaurant-akira.jpg",
+    img: "/images/portfolio/restaurant-japonais.jpg",
     url: "#"
   },
   {
     title: "Espace bien-être",
-    subtitle: "Site vitrine de produits/bien-être",
+  subtitle: "Site de vente de produits frais en ligne",
     tech: "Site réalisé avec LARAVEL",
-    img: "/img/portfolio/espace-bien-etre.jpg",
+    img: "/images/portfolio/espace-bien-etre.jpg",
     url: "#"
   },
   {
     title: "SEO",
-    subtitle: "Amélioration du référencement d’un site e-commerce",
+  subtitle: "Amélioration du référencement d'un site e-commerce",
     tech: "Utilisation des outils SEO",
-    img: "/img/portfolio/seo.jpg",
+    img: "/images/portfolio/seo.jpg",
     url: "#"
   },
   {
     title: "Création d'une API",
-    subtitle: "Création d’une API RESTful publique",
-    tech: "PHP · SYMFONY",
-    img: "/img/portfolio/api.jpg",
+    subtitle: "Création d'une API RESTFULL publique",
+    tech: "PHP - SYMFONY",
+    img: "/images/portfolio/coder.jpg",
     url: "#"
   },
   {
-    title: "Maquette d’un site web",
-    subtitle: "Création d’un prototype de site",
+    title: "Maquette d'un site web",
+    subtitle: "Création du prototype d'un site",
     tech: "Réalisé avec FIGMA",
-    img: "/img/portfolio/maquette.jpg",
+    img: "/images/portfolio/screens.jpg",
     url: "#"
   }
 ];
@@ -52,7 +52,7 @@ export default function Portfolio() {
       {/* Héro bleu (même visuel que Services) */}
       <div
         style={{
-          backgroundImage: "url(/img/hero-blue.jpg)",
+          backgroundImage: "url(/images/banner.jpg)",
           backgroundSize: "cover",
           backgroundPosition: "center",
           height: 250,
@@ -63,14 +63,14 @@ export default function Portfolio() {
       <Container className="text-center my-5">
         <h1 className="fw-bold">Portfolio</h1>
         <p className="text-muted">Voici quelques-unes de mes réalisations.</p>
-        <hr className="mx-auto" style={{ width: 80, borderTop: "3px solid #0d6efd" }} />
+  <hr className="section-divider mx-auto" />
       </Container>
 
       <Container className="pb-5">
         <Row className="g-4">
           {items.map((p, i) => (
             <Col key={i} md={6} lg={4}>
-              <Card className="h-100 shadow-sm">
+              <Card className="h-100 shadow-sm portfolio-card">
                 <div style={{ height: 180, overflow: "hidden" }}>
                   <Card.Img
                     src={p.img}
@@ -81,7 +81,7 @@ export default function Portfolio() {
                 <Card.Body className="text-center">
                   <Card.Title className="mb-1">{p.title}</Card.Title>
                   <div className="text-muted small mb-2">{p.subtitle}</div>
-                  <Button size="sm" variant="primary" href={p.url}>Voir le site</Button>
+                  <Button size="sm" variant="primary" href={p.url} className="portfolio-btn">Voir le site</Button>
                 </Card.Body>
                 <Card.Footer className="text-center small text-muted">{p.tech}</Card.Footer>
               </Card>
