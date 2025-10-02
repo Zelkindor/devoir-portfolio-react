@@ -1,0 +1,8 @@
+.hero {
+  height: 100vh;
+  /* background image is set inline in the component to load from public/ without webpack resolving it */
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+}
